@@ -197,8 +197,8 @@ La aplicación sigue una arquitectura modular basada en componentes:
 
 1. **Clonar el Repositorio**:
 ```bash
-git clone https://github.com/metatech-programmer/ultimate-iptv-2026.git
-cd ultimate-iptv-2026
+git clone https://github.com/metatech-programmer/iptv_roku_app.git
+cd iptv_roku_app
 ```
 
 2. **Configurar el Manifest**:
@@ -255,8 +255,9 @@ Este proyecto está licenciado bajo la Licencia MIT - ver el archivo [LICENSE](L
 
 ## 👤 Autor
 
-**Tu Nombre**
-- GitHub: [@metatech](https://github.com/metatech-programmer)
+**Santiago Aguilar**
+- GitHub: [@metatech-programmer](https://github.com/metatech-programmer)
+- Email: santiagoaguilart0@gmail.com
 
 ## 🙏 Agradecimientos
 
@@ -267,8 +268,8 @@ Este proyecto está licenciado bajo la Licencia MIT - ver el archivo [LICENSE](L
 ## 📞 Soporte
 
 Si tienes problemas o preguntas:
-- 🐛 [Reportar un Bug](https://github.com/metatech-programmer/ultimate-iptv-2026/issues)
-- 💡 [Solicitar una Feature](https://github.com/metatech-programmer/ultimate-iptv-2026/issues)
+- 🐛 [Reportar un Bug](https://github.com/metatech-programmer/iptv_roku_app/issues)
+- 💡 [Solicitar una Feature](https://github.com/metatech-programmer/iptv_roku_app/issues)
 - 📧 Contacto: santiagoaguilart0@gmail.com
 
 ---
@@ -280,5 +281,3 @@ Si tienes problemas o preguntas:
 Hecho con ❤️ para la comunidad Roku
 
 </div>
-#   i p t v _ r o k u _ a p p  
- 

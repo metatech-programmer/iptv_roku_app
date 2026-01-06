@@ -2,6 +2,11 @@
 
 Documentación completa de todas las características y funcionalidades de Ultimate IPTV 2026.
 
+**Proyecto**: Ultimate IPTV 2026  
+**Repositorio**: [metatech-programmer/iptv_roku_app](https://github.com/metatech-programmer/iptv_roku_app)  
+**Autor**: Santiago Aguilar ([@metatech-programmer](https://github.com/metatech-programmer))  
+**Versión**: 1.2.1
+
 ## 📋 Tabla de Contenidos
 
 - [Gestión de Listas IPTV](#-gestión-de-listas-iptv)

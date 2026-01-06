@@ -2,6 +2,13 @@
 
 Bienvenido a la documentación completa de **Ultimate IPTV 2026**. Este índice te ayudará a encontrar rápidamente la información que necesitas.
 
+**Proyecto**: Ultimate IPTV 2026  
+**Repositorio**: [metatech-programmer/iptv_roku_app](https://github.com/metatech-programmer/iptv_roku_app)  
+**Autor**: Santiago Aguilar ([@metatech-programmer](https://github.com/metatech-programmer))  
+**Versión**: 1.2.1
+
+---
+
 ## 🚀 Inicio Rápido
 
 | Documento | Descripción | Para Quién |

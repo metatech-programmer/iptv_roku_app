@@ -2,6 +2,9 @@
 
 ¡Gracias por tu interés en contribuir a Ultimate IPTV 2026! Este documento proporciona pautas para contribuir al proyecto.
 
+**Repositorio**: [metatech-programmer/iptv_roku_app](https://github.com/metatech-programmer/iptv_roku_app)
+**Autor**: Santiago Aguilar ([@metatech-programmer](https://github.com/metatech-programmer))
+
 ## 📋 Tabla de Contenidos
 
 - [Código de Conducta](#código-de-conducta)

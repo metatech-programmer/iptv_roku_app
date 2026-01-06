@@ -1,5 +1,11 @@
 # Código de Conducta del Contribuyente
 
+**Proyecto**: Ultimate IPTV 2026  
+**Repositorio**: [metatech-programmer/iptv_roku_app](https://github.com/metatech-programmer/iptv_roku_app)  
+**Autor**: Santiago Aguilar ([@metatech-programmer](https://github.com/metatech-programmer))
+
+---
+
 ## Nuestro Compromiso
 
 En el interés de fomentar un ambiente abierto y acogedor, nosotros como contribuyentes y mantenedores nos comprometemos a hacer de la participación en nuestro proyecto y nuestra comunidad una experiencia libre de acoso para todos, independientemente de la edad, dimensión corporal, discapacidad, etnia, identidad y expresión de género, nivel de experiencia, nacionalidad, apariencia física, raza, religión, o identidad y orientación sexual.

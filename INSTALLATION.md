@@ -2,6 +2,11 @@
 
 Esta guía te llevará paso a paso por el proceso de instalación de Ultimate IPTV 2026 en tu dispositivo Roku.
 
+**Proyecto**: Ultimate IPTV 2026  
+**Repositorio**: [metatech-programmer/iptv_roku_app](https://github.com/metatech-programmer/iptv_roku_app)  
+**Autor**: Santiago Aguilar ([@metatech-programmer](https://github.com/metatech-programmer))  
+**Versión**: 1.2.1
+
 ## 📋 Tabla de Contenidos
 
 - [Requisitos](#-requisitos)

@@ -8,7 +8,7 @@ La seguridad de Ultimate IPTV 2026 es una prioridad. Agradecemos a la comunidad 
 
 Si descubres una vulnerabilidad de seguridad, por favor **NO** la reportes públicamente. En su lugar:
 
-1. **Envía un email privado** a: [tu-email@ejemplo.com]
+1. **Envía un email privado** a: santiagoaguilart0@gmail.com
 2. **Incluye los siguientes detalles**:
    - Descripción de la vulnerabilidad
    - Pasos para reproducir el problema
