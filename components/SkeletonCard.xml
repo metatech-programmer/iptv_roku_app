@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- 
+*************************************************************
+Ultimate IPTV 2026 - Skeleton Loading Card
+Descripción: Tarjeta de carga estilo React/Web App
+Efecto "pulse" mientras se cargan los datos reales
+************************************************************* 
+-->
+<component name="SkeletonCard" extends="Group">
+    <script type="text/brightscript" uri="pkg:/components/SkeletonCard.brs" />
+    
+    <children>
+        <!-- Card skeleton minimalista horizontal -->
+        <Rectangle
+            id="skeletonBox"
+            width="300"
+            height="96"
+            color="#1A1A1A"
+            opacity="1.0" />
+        
+        <!-- Icono simulado pequeño -->
+        <Rectangle
+            id="skeletonImage"
+            translation="[12, 12]"
+            width="72"
+            height="72"
+            color="#242424"
+            opacity="1.0" />
+        
+        <!-- Título simulado -->
+        <Rectangle
+            id="skeletonTitle"
+            translation="[96, 30]"
+            width="180"
+            height="18"
+            color="#242424"
+            opacity="1.0" />
+        
+        <!-- Descripción simulada -->
+        <Rectangle
+            id="skeletonDesc"
+            translation="[96, 60]"
+            width="120"
+            height="12"
+            color="#242424"
+            opacity="0.7" />
+    </children>
+</component>

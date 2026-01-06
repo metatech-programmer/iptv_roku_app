@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- 
+*************************************************************
+Ultimate IPTV 2026 - Sidebar Menu Navegable
+Descripción: Menú lateral interactivo con RowList
+************************************************************* 
+-->
+<component name="SidebarMenu" extends="Group">
+    <interface>
+        <field id="menuItemSelected" type="integer" alwaysNotify="true" />
+    </interface>
+    
+    <script type="text/brightscript" uri="pkg:/components/SidebarMenu.brs" />
+    
+    <children>
+        <!-- Fondo del sidebar -->
+        <Rectangle
+            id="sidebarBg"
+            width="100"
+            height="1080"
+            color="#000000"
+            opacity="0.95" />
+        
+        <!-- Lista de opciones -->
+        <RowList
+            id="menuList"
+            translation="[10, 80]"
+            itemComponentName="SidebarMenuItem"
+            itemSize="[80, 80]"
+            itemSpacing="[0, 20]"
+            numRows="5"
+            drawFocusFeedback="false" />
+    </children>
+</component>

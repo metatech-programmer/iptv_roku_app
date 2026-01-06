@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- 
+*************************************************************
+Ultimate IPTV 2026 - Buscador Global
+Descripción: Búsqueda profesional en todas las playlists
+************************************************************* 
+-->
+<component name="SearchDialog" extends="Group">
+    <interface>
+        <field id="visible" type="boolean" value="false" alwaysNotify="true" />
+        <field id="searchResult" type="assocarray" alwaysNotify="true" />
+    </interface>
+    
+    <script type="text/brightscript" uri="pkg:/components/SearchDialog.brs" />
+    
+    <children>
+        <!-- Standard Keyboard Dialog para email y PIN -->
+        <StandardKeyboardDialog
+            id="searchKeyboard"
+            title="Buscar canales"
+            buttons='["Buscar", "Cancelar"]' />
+    </children>
+</component>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- 
+*************************************************************
+Ultimate IPTV 2026 - Channel Card Component
+Descripción: Tarjeta visual para canales de TV
+Muestra logo, nombre y efecto glow al recibir foco
+************************************************************* 
+-->
+<component name="ChannelCard" extends="Group">
+    <interface>
+        <field id="itemContent" type="node" onChange="onContentSet" />
+        <field id="focusPercent" type="float" onChange="onFocusPercentChange" />
+    </interface>
+    
+    <script type="text/brightscript" uri="pkg:/components/ChannelCard.brs" />
+    
+    <children>
+        <!-- Card Minimalista Horizontal -->
+        <Group id="cardContainer">
+            <!-- Fondo -->
+            <Rectangle
+                id="cardBackground"
+                width="300"
+                height="96"
+                color="#1A1A1A"
+                opacity="1.0" />
+            
+            <!-- Borde de foco sutil -->
+            <Rectangle
+                id="focusBorder"
+                width="300"
+                height="96"
+                color="#FFFFFF"
+                opacity="0.0" />
+
+            <!-- Badge favorito (estrella) -->
+            <Poster
+                id="favoriteBadge"
+                translation="[230, 8]"
+                width="36"
+                height="36"
+                uri="pkg:/images/favorites_icon.png"
+                loadDisplayMode="scaleToFit"
+                opacity="0.9"
+                visible="false" />
+            
+            <!-- Logo pequeño a la izquierda -->
+            <Poster
+                id="channelLogo"
+                translation="[12, 12]"
+                width="72"
+                height="72"
+                loadDisplayMode="scaleToFit"
+                failedBitmapUri="pkg:/images/tv_placeholder.png" />
+            
+            <!-- Nombre del canal -->
+            <MarqueeLabel
+                id="channelName"
+                translation="[96, 30]"
+                maskWidth="192"
+                maskHeight="36"
+                font="font:SmallBoldSystemFont"
+                color="#FFFFFF" />
+        </Group>
+    </children>
+</component>

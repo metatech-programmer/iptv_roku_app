@@ -1,0 +1,28 @@
+# Ultimate IPTV 2026 - Manifest
+# Aplicación profesional de IPTV para Roku
+
+title=Ultimate IPTV 2026
+major_version=1
+minor_version=2
+build_version=1
+
+# UI Resolution - Full HD Focus
+ui_resolutions=fhd
+
+# Splash Screen
+splash_screen_fhd=pkg:/images/splash-fhd.jpg
+splash_screen_hd=pkg:/images/splash-hd.jpg
+splash_color=#000000
+splash_min_time=1000
+
+# Deep Linking Support
+supports_input_launch=1
+
+# App Characteristics
+requires_audiometadata=1
+
+# Network Access Required
+requires_internet=1
+
+# App Icons (Required for Channel Store)
+mm_icon_focus_hd=pkg:/images/mm_icon_focus_hd.png

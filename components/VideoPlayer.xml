@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- 
+*************************************************************
+Ultimate IPTV 2026 - Video Player Component MEJORADO
+Descripción: Reproductor profesional con cambio de canal
+y controles avanzados
+************************************************************* 
+-->
+<component name="VideoPlayer" extends="Group">
+    <interface>
+        <field id="streamUrl" type="string" alwaysNotify="true" />
+        <field id="title" type="string" />
+        <field id="channelList" type="array" />
+        <field id="playlists" type="array" />
+        <field id="currentChannelIndex" type="integer" value="0" />
+        <field id="finished" type="boolean" alwaysNotify="true" />
+        <field id="channelChanged" type="integer" alwaysNotify="true" />
+        <field id="videoPlaying" type="boolean" alwaysNotify="true" />
+        <field id="isDeepLinkPlayback" type="boolean" value="false" />
+    </interface>
+    
+    <script type="text/brightscript" uri="pkg:/components/VideoPlayer.brs" />
+    
+    <children>
+        <!-- Nodo de Video -->
+        <Video
+            id="videoNode"
+            translation="[0, 0]"
+            width="1920"
+            height="1080"
+            enableUI="false"
+            loop="false"
+            enableTrickPlay="true"
+            trickPlayBarVisibilityAuto="false" />
+        
+        <!-- Overlay de Controles (inicialmente oculto) -->
+        <Group id="controlsOverlay" visible="false">
+            <!-- Fondo semitransparente -->
+            <Rectangle
+                width="1920"
+                height="1080"
+                color="#000000"
+                opacity="0.7" />
+            
+            <!-- Barra superior con info del canal -->
+            <Rectangle
+                translation="[0, 0]"
+                width="1920"
+                height="150"
+                color="#0A0A0A"
+                opacity="0.95" />
+            
+            <!-- Logo/Poster del canal -->
+            <Poster
+                id="channelLogo"
+                translation="[60, 30]"
+                width="90"
+                height="90"
+                uri="pkg:/images/tv_placeholder.png" />
+            
+            <!-- Título del canal -->
+            <MarqueeLabel
+                id="channelTitle"
+                translation="[180, 40]"
+                maskWidth="1000"
+                maskHeight="50"
+                font="font:LargeBoldSystemFont"
+                color="#FFFFFF" />
+            
+            <!-- Categoría/Descripción -->
+            <MarqueeLabel
+                id="channelCategory"
+                translation="[180, 95]"
+                maskWidth="1000"
+                maskHeight="30"
+                font="font:SmallSystemFont"
+                color="#AAAAAA" />
+            
+            <!-- Contador de canales -->
+            <Label
+                id="channelCounter"
+                translation="[1650, 60]"
+                width="210"
+                height="40"
+                font="font:MediumSystemFont"
+                color="#888888"
+                horizAlign="right" />
+            
+            <!-- Barra inferior con controles -->
+            <Rectangle
+                translation="[0, 930]"
+                width="1920"
+                height="150"
+                color="#0A0A0A"
+                opacity="0.95" />
+            
+            <!-- Botones de control espaciados -->
+            <Group id="controlButtons" translation="[0, 950]">
+                <!-- Botón: Canal Anterior -->
+                <Group id="prevChannelBtn" translation="[240, 0]">
+                    <Rectangle
+                        width="180"
+                        height="70"
+                        color="#1A1A1A"
+                        opacity="0.9" />
+                    <Label
+                        translation="[90, 20]"
+                        width="180"
+                        height="30"
+                        text="◀ Anterior"
+                        font="font:MediumSystemFont"
+                        color="#FFFFFF"
+                        horizAlign="center" />
+                </Group>
+                
+                <!-- Botón: Play/Pause -->
+                <Group id="playPauseBtn" translation="[480, 0]">
+                    <Rectangle
+                        width="180"
+                        height="70"
+                        color="#1A1A1A"
+                        opacity="0.9" />
+                    <Label
+                        id="playPauseLabel"
+                        translation="[90, 20]"
+                        width="180"
+                        height="30"
+                        text="⏸ Pausar"
+                        font="font:MediumSystemFont"
+                        color="#FFFFFF"
+                        horizAlign="center" />
+                </Group>
+                
+                <!-- Botón: Canal Siguiente -->
+                <Group id="nextChannelBtn" translation="[720, 0]">
+                    <Rectangle
+                        width="180"
+                        height="70"
+                        color="#1A1A1A"
+                        opacity="0.9" />
+                    <Label
+                        translation="[90, 20]"
+                        width="180"
+                        height="30"
+                        text="Siguiente ▶"
+                        font="font:MediumSystemFont"
+                        color="#FFFFFF"
+                        horizAlign="center" />
+                </Group>
+                
+                <!-- Botón: Lista de Canales -->
+                <Group id="channelListBtn" translation="[1020, 0]">
+                    <Rectangle
+                        width="220"
+                        height="70"
+                        color="#1A1A1A"
+                        opacity="0.9" />
+                    <Label
+                        translation="[110, 20]"
+                        width="220"
+                        height="30"
+                        text="☰ Lista"
+                        font="font:MediumSystemFont"
+                        color="#FFFFFF"
+                        horizAlign="center" />
+                </Group>
+            </Group>
+            
+            <!-- Info de reproducción -->
+            <Label
+                id="playbackInfo"
+                translation="[1300, 970]"
+                width="560"
+                height="30"
+                font="font:SmallSystemFont"
+                color="#888888"
+                horizAlign="right" />
+            
+            <!-- Indicador de buffering centrado -->
+            <Group id="bufferingGroup" visible="false">
+                <BusySpinner
+                    id="bufferingSpinner"
+                    translation="[910, 490]" />
+                <Label
+                    translation="[760, 580]"
+                    width="400"
+                    height="40"
+                    text="Cargando..."
+                    font="font:MediumSystemFont"
+                    color="#FFFFFF"
+                    horizAlign="center" />
+            </Group>
+            
+            <!-- Instrucciones -->
+            <Label
+                translation="[60, 1010]"
+                width="1800"
+                height="25"
+                text="OK = Menú  •  ◀▶ = Cambiar Canal  •  * = Favorito  •  BACK = Salir"
+                font="font:SmallSystemFont"
+                color="#666666"
+                horizAlign="center" />
+        </Group>
+        
+        <!-- Panel lateral de lista de canales -->
+        <Group id="channelListPanel" visible="false">
+            <Rectangle
+                width="500"
+                height="1080"
+                color="#0A0A0A"
+                opacity="0.98" />
+            
+            <Label
+                id="browserTitle"
+                translation="[30, 30]"
+                width="440"
+                height="50"
+                text="Lista de Canales"
+                font="font:LargeBoldSystemFont"
+                color="#FFFFFF" />
+            
+            <MarkupList
+                id="channelListView"
+                translation="[30, 100]"
+                itemComponentName="ChannelListItem"
+                itemSize="[440, 80]"
+                itemSpacing="[0, 10]" />
+            
+            <Label
+                translation="[30, 1020]"
+                width="440"
+                height="30"
+                text="BACK = Cerrar Lista"
+                font="font:SmallestSystemFont"
+                color="#666666"
+                horizAlign="center" />
+        </Group>
+
+        <!-- Feedback no invasivo al cambiar canal (no tapa el video) -->
+        <Group id="switchStatusGroup" visible="false" translation="[1320, 980]">
+            <Rectangle
+                width="560"
+                height="60"
+                color="#0A0A0A"
+                opacity="0.65" />
+            <Label
+                id="switchStatusLabel"
+                translation="[20, 15]"
+                width="520"
+                height="30"
+                text="Cambiando canal..."
+                font="font:SmallSystemFont"
+                color="#FFFFFF" />
+        </Group>
+        
+        <!-- Spinner de carga inicial -->
+        <Group id="loadingGroup" visible="true">
+            <Rectangle
+                width="1920"
+                height="1080"
+                color="#0F0F0F"
+                opacity="1.0" />
+            
+            <BusySpinner
+                translation="[910, 440]" />
+            
+            <Label
+                translation="[660, 580]"
+                width="600"
+                height="50"
+                text="Iniciando canal..."
+                font="font:LargeBoldSystemFont"
+                color="#FFFFFF"
+                horizAlign="center" />
+            
+            <MarqueeLabel
+                id="loadingChannelName"
+                translation="[660, 640]"
+                maskWidth="600"
+                maskHeight="35"
+                font="font:MediumSystemFont"
+                color="#888888"
+                horizAlign="center" />
+        </Group>
+    </children>
+</component>

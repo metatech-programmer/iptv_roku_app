@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- 
+*************************************************************
+Ultimate IPTV 2026 - M3U Loader Task XML
+Descripción: Task Node para parsear M3U en background
+************************************************************* 
+-->
+<component name="M3ULoaderTask" extends="Task">
+    <interface>
+        <!-- Input -->
+        <field id="url" type="string" />
+        
+        <!-- Output -->
+        <field id="result" type="assocarray" />
+    </interface>
+    
+    <script type="text/brightscript" uri="pkg:/components/M3ULoaderTask.brs" />
+</component>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+*************************************************************
+SidebarMenuTextItem
+- Item del menú lateral expandido
+- Marquee al enfocar si el texto se corta
+*************************************************************
+-->
+<component name="SidebarMenuTextItem" extends="Group">
+    <interface>
+        <field id="itemContent" type="node" onChange="onContentSet" />
+        <field id="focusPercent" type="float" onChange="onFocusChange" />
+    </interface>
+
+    <script type="text/brightscript" uri="pkg:/components/SidebarMenuTextItem.brs" />
+
+    <children>
+        <Group id="container">
+            <Rectangle
+                id="bg"
+                width="210"
+                height="54"
+                color="#1A1A1A"
+                opacity="0.0" />
+
+            <MarqueeLabel
+                id="title"
+                translation="[12, 10]"
+                maskWidth="186"
+                maskHeight="34"
+                font="font:SmallBoldSystemFont"
+                color="#999999" />
+        </Group>
+    </children>
+</component>

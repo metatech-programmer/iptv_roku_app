@@ -1,0 +1,95 @@
+# Roku Development .gitignore
+
+# Roku Compiled Files
+*.pkg
+*.zip
+
+# Build Output
+out/
+dist/
+build/
+
+# Roku Deployment
+*.roku
+
+# IDE and Editor Files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Logs and Debug
+*.log
+debug/
+logs/
+
+# Temporary Files
+*.tmp
+*.temp
+*.bak
+*.backup
+.cache/
+
+# Environment and Config
+.env
+.env.local
+config.local.*
+
+# Node Modules (if using any build tools)
+node_modules/
+package-lock.json
+yarn.lock
+
+# Python (if using any Python scripts)
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+venv/
+env/
+
+# OS Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Test Files
+test/
+tests/
+*.test.*
+
+# Documentation Build
+docs/_build/
+site/
+
+# Certificates and Keys
+*.pem
+*.key
+*.cert
+*.crt
+
+# Personal Notes
+notes.txt
+TODO.txt
+NOTES.md
+
+# Backup Files
+backup/
+*.backup
+
+# Coverage Reports
+coverage/
+.nyc_output/
+
+# Misc
+.eslintcache
+.sass-cache/

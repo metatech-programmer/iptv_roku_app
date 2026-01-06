@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- 
+*************************************************************
+Ultimate IPTV 2026 - Main Scene XML (UI MEJORADA)
+************************************************************* 
+-->
+<component name="MainScene" extends="Scene">
+    <interface>
+        <!-- Field para recibir deep linking arguments -->
+        <field id="deepLinkArgs" type="assocarray" alwaysNotify="true" />
+    </interface>
+    
+    <script type="text/brightscript" uri="pkg:/components/MainScene.brs" />
+    
+    <children>
+        <!-- Background Minimalista -->
+        <Rectangle 
+            width="1920" 
+            height="1080"
+            color="#0F0F0F" />
+        
+        <!-- Sidebar Minimalista FIJO (sin animación) -->
+        <Rectangle 
+            id="sidebar" 
+            width="60" 
+            height="1080" 
+            color="#0A0A0A" 
+            opacity="1.0" 
+            translation="[0, 0]" />
+        
+        <!-- Sidebar expandido overlay -->
+        <Group id="sidebarExpanded" visible="false">
+            <Rectangle 
+                width="240" 
+                height="1080" 
+                color="#0A0A0A" 
+                opacity="0.98" />
+            
+            <MarkupList
+                id="sidebarMenu"
+                translation="[15, 60]"
+                itemComponentName="SidebarMenuTextItem"
+                itemSize="[210, 54]"
+                width="210"
+                height="300">
+                <ContentNode role="content">
+                    <ContentNode title="  Inicio" />
+                    <ContentNode title="  Buscar" />
+                    <ContentNode title="  Agregar" />
+                    <ContentNode title="  Configuración" />
+                </ContentNode>
+            </MarkupList>
+        </Group>
+        
+        <!-- Iconos minimalistas siempre visibles -->
+        <Group id="sidebarIcons" translation="[0, 0]" visible="true">
+            <Poster id="homeIcon" uri="pkg:/images/home_icon.png" translation="[15, 75]" width="30" height="30" />
+            <Poster id="searchIcon" uri="pkg:/images/search_icon.png" translation="[15, 150]" width="30" height="30" />
+            <Poster id="addIcon" uri="pkg:/images/add_icon.png" translation="[15, 225]" width="30" height="30" />
+            <Poster id="settingsIcon" uri="pkg:/images/settings_icon.png" translation="[15, 300]" width="30" height="30" />
+        </Group>
+        
+        <!-- Main Content Minimalista -->
+        <Group id="mainContent" translation="[75, 0]">
+            <!-- Header minimalista simple -->
+            <Label 
+                id="appTitle" 
+                text="IPTV" 
+                translation="[30, 30]" 
+                font="font:MediumBoldSystemFont" 
+                color="#FFFFFF" />
+            
+            <!-- Grids minimalistas con más espacio -->
+            <MarkupGrid id="homeGrid" translation="[30, 90]" itemComponentName="PlaylistCard" itemSize="[300, 96]" itemSpacing="[18, 18]" numColumns="5" numRows="4" visible="true" />
+            <MarkupGrid id="categoriesGrid" translation="[30, 90]" itemComponentName="PlaylistCard" itemSize="[300, 96]" itemSpacing="[18, 18]" numColumns="5" numRows="4" visible="false" />
+            <MarkupGrid id="channelsGrid" translation="[30, 90]" itemComponentName="ChannelCard" itemSize="[300, 96]" itemSpacing="[18, 18]" numColumns="5" numRows="4" visible="false" />
+            
+            <!-- Skeleton Loading -->
+            <MarkupGrid id="skeletonGrid" translation="[30, 90]" itemComponentName="SkeletonCard" itemSize="[300, 96]" itemSpacing="[18, 18]" numColumns="5" numRows="4" visible="false" />
+            
+            <BusySpinner id="loadingSpinner" translation="[900, 500]" visible="false" />
+        </Group>
+        
+        <!-- Help text minimalista -->
+        <Label 
+            id="helpLabel" 
+            translation="[75, 1020]" 
+            width="1800" 
+            text="* Favoritos  •  ← Menú  •  BACK Volver"
+            font="font:SmallestSystemFont" 
+            color="#444444" 
+            visible="true" />
+        
+        <!-- Dialogs ENCIMA de TODO (z-index: 3) -->
+        <SearchDialog id="searchDialog" visible="false" />
+        <SettingsDialog id="settingsDialog" visible="false" />
+        <StandardKeyboardDialog id="addPlaylistKeyboard" visible="false" />
+        
+        <!-- Toast minimalista -->\n        <Rectangle id="toastBackground" translation="[660, 30]" width="600" height="60" color="#1A1A1A" opacity="0" visible="false">
+            <Label id="toastLabel" translation="[15, 15]" width="570" height="30" font="font:SmallBoldSystemFont" color="#FFFFFF" horizAlign="center" />
+        </Rectangle>
+    </children>
+</component>

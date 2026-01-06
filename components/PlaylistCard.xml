@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- 
+*************************************************************
+Ultimate IPTV 2026 - Playlist Card Component
+Descripción: Tarjeta visual para el Home Grid
+Diseño moderno estilo Netflix con animación en foco
+************************************************************* 
+-->
+<component name="PlaylistCard" extends="Group">
+    <interface>
+        <field id="itemContent" type="node" onChange="onContentSet" />
+        <field id="focusPercent" type="float" onChange="onFocusPercentChange" />
+    </interface>
+    
+    <script type="text/brightscript" uri="pkg:/components/PlaylistCard.brs" />
+    
+    <children>
+        <!-- Card Minimalista Horizontal -->
+        <Group id="cardContainer">
+            <!-- Fondo -->
+            <Rectangle
+                id="cardBackground"
+                width="300"
+                height="96"
+                color="#1A1A1A"
+                opacity="1.0" />
+            
+            <!-- Borde de foco sutil -->
+            <Rectangle
+                id="focusBorder"
+                width="300"
+                height="96"
+                color="#FFFFFF"
+                opacity="0.0" />
+            
+            <!-- Icono pequeño a la izquierda -->
+            <Poster
+                id="cardIcon"
+                translation="[12, 12]"
+                width="72"
+                height="72"
+                loadDisplayMode="scaleToFit"
+                failedBitmapUri="pkg:/images/placeholder.png" />
+            
+            <!-- Título -->
+            <MarqueeLabel
+                id="cardTitle"
+                translation="[96, 24]"
+                maskWidth="192"
+                maskHeight="30"
+                font="font:SmallBoldSystemFont"
+                color="#FFFFFF" />
+            
+            <!-- Descripción pequeña -->
+            <MarqueeLabel
+                id="cardDescription"
+                translation="[96, 54]"
+                maskWidth="192"
+                maskHeight="24"
+                font="font:SmallestSystemFont"
+                color="#888888" />
+        </Group>
+    </children>
+</component>

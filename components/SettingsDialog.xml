@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- 
+*************************************************************
+Ultimate IPTV 2026 - Settings Dialog MEJORADO
+Diseño minimalista profesional y funcional
+************************************************************* 
+-->
+<component name="SettingsDialog" extends="Group">
+    <interface>
+        <field id="visible" type="boolean" value="false" alwaysNotify="true" />
+        <field id="settingChanged" type="assocarray" alwaysNotify="true" />
+    </interface>
+    
+    <script type="text/brightscript" uri="pkg:/components/SettingsDialog.brs" />
+    
+    <children>
+        <!-- Fondo oscuro overlay -->
+        <Rectangle
+            width="1920"
+            height="1080"
+            color="#000000"
+            opacity="0.85" />
+        
+        <!-- Panel centrado minimalista -->
+        <Group id="settingsContainer" translation="[360, 90]">
+            <!-- Fondo del panel -->
+            <Rectangle
+                width="1200"
+                height="900"
+                color="#0F0F0F" />
+            
+            <!-- Borde sutil -->
+            <Rectangle
+                width="1200"
+                height="2"
+                color="#1A1A1A" />
+            <Rectangle
+                translation="[0, 898]"
+                width="1200"
+                height="2"
+                color="#1A1A1A" />
+            
+            <!-- Header -->
+            <Group id="header" translation="[0, 0]">
+                <Rectangle
+                    width="1200"
+                    height="90"
+                    color="#0A0A0A" />
+                
+                <Label
+                    translation="[60, 30]"
+                    width="1080"
+                    height="40"
+                    text="Configuración"
+                    font="font:LargeBoldSystemFont"
+                    color="#FFFFFF" />
+            </Group>
+            
+            <!-- Lista de configuraciones con dos columnas -->
+            <Group id="settingsContent" translation="[60, 120]">
+                <!-- Columna izquierda: Opciones principales -->
+                <Group id="leftColumn" translation="[0, 0]">
+                    <Label
+                        translation="[0, 0]"
+                        width="500"
+                        height="30"
+                        text="OPCIONES"
+                        font="font:SmallBoldSystemFont"
+                        color="#666666" />
+                    
+                    <MarkupList
+                        id="settingsList"
+                        translation="[0, 45]"
+                        itemComponentName="SettingsListItem"
+                        itemSize="[500, 70]"
+                        width="500"
+                        height="630"
+                        itemSpacing="[0, 12]"
+                        color="#AAAAAA"
+                        focusedColor="#FFFFFF"
+                        font="font:MediumSystemFont" />
+                </Group>
+                
+                <!-- Columna derecha: Descripción y valor -->
+                <Group id="rightColumn" translation="[580, 0]">
+                    <Label
+                        translation="[0, 0]"
+                        width="500"
+                        height="30"
+                        text="DETALLES"
+                        font="font:SmallBoldSystemFont"
+                        color="#666666" />
+                    
+                    <Rectangle
+                        translation="[0, 45]"
+                        width="500"
+                        height="200"
+                        color="#1A1A1A" />
+                    
+                    <Label
+                        id="settingDescription"
+                        translation="[30, 75]"
+                        width="440"
+                        height="140"
+                        font="font:SmallSystemFont"
+                        color="#CCCCCC"
+                        wrap="true" />
+                    
+                    <!-- Panel de info adicional -->
+                    <Rectangle
+                        translation="[0, 280]"
+                        width="500"
+                        height="350"
+                        color="#121212" />
+                    
+                    <Label
+                        translation="[30, 310]"
+                        width="440"
+                        height="30"
+                        text="INFORMACIÓN"
+                        font="font:SmallBoldSystemFont"
+                        color="#666666" />
+                    
+                    <Label
+                        id="appInfo"
+                        translation="[30, 355]"
+                        width="440"
+                        height="240"
+                        font="font:SmallestSystemFont"
+                        color="#888888"
+                        wrap="true" />
+                </Group>
+            </Group>
+            
+            <!-- Footer con instrucciones -->
+            <Group id="footer" translation="[0, 810]">
+                <Rectangle
+                    width="1200"
+                    height="90"
+                    color="#0A0A0A" />
+                
+                <Label
+                    translation="[60, 25]"
+                    width="1080"
+                    height="40"
+                    text="OK = Cambiar Valor  •  ▲▼ = Navegar  •  BACK = Salir"
+                    font="font:SmallSystemFont"
+                    color="#666666"
+                    horizAlign="center" />
+            </Group>
+        </Group>
+    </children>
+</component>

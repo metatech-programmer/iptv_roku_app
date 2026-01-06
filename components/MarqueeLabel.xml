@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+Reusable marquee label that scrolls text horizontally when focused and truncated.
+-->
+<component name="MarqueeLabel" extends="Group">
+    <interface>
+        <field id="text" type="string" value="" alwaysNotify="true" />
+        <field id="font" type="string" value="font:SmallBoldSystemFont" alwaysNotify="true" />
+        <field id="color" type="string" value="#FFFFFF" alwaysNotify="true" />
+        <field id="horizAlign" type="string" value="left" alwaysNotify="true" />
+        <field id="maskWidth" type="float" value="200" alwaysNotify="true" />
+        <field id="maskHeight" type="float" value="30" alwaysNotify="true" />
+        <field id="focused" type="boolean" value="false" alwaysNotify="true" />
+        <field id="pixelsPerSecond" type="float" value="90" alwaysNotify="true" />
+        <field id="startDelay" type="float" value="0.6" alwaysNotify="true" />
+    </interface>
+
+    <script type="text/brightscript" uri="pkg:/components/MarqueeLabel.brs" />
+
+    <children>
+        <!-- Clip group: hides overflowing text -->
+        <Group id="clip" translation="[0, 0]" />
+    </children>
+</component>

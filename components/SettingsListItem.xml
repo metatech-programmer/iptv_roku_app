@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+*************************************************************
+SettingsListItem
+- Item para SettingsDialog.settingsList
+- Marquee al enfocar si el texto se corta
+*************************************************************
+-->
+<component name="SettingsListItem" extends="Group">
+    <interface>
+        <field id="itemContent" type="node" onChange="onContentSet" />
+        <field id="focusPercent" type="float" onChange="onFocusChange" />
+    </interface>
+
+    <script type="text/brightscript" uri="pkg:/components/SettingsListItem.brs" />
+
+    <children>
+        <Group id="container">
+            <Rectangle
+                id="bg"
+                width="500"
+                height="70"
+                color="#1A1A1A"
+                opacity="0.0" />
+
+            <MarqueeLabel
+                id="title"
+                translation="[20, 18]"
+                maskWidth="460"
+                maskHeight="34"
+                font="font:MediumSystemFont"
+                color="#AAAAAA" />
+        </Group>
+    </children>
+</component>

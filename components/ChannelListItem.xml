@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+*************************************************************
+ChannelListItem
+- Item para la lista lateral del reproductor
+- Usa MarqueeLabel para mostrar títulos largos al enfocar
+*************************************************************
+-->
+<component name="ChannelListItem" extends="Group">
+    <interface>
+        <field id="itemContent" type="node" onChange="onContentSet" />
+        <field id="focusPercent" type="float" onChange="onFocusChange" />
+    </interface>
+
+    <script type="text/brightscript" uri="pkg:/components/ChannelListItem.brs" />
+
+    <children>
+        <Group id="itemContainer">
+            <Rectangle
+                id="bg"
+                width="440"
+                height="80"
+                color="#1A1A1A"
+                opacity="0.0" />
+
+            <!-- Badge favorito (estrella) -->
+            <Poster
+                id="favoriteBadge"
+                translation="[350, 8]"
+                width="32"
+                height="32"
+                uri="pkg:/images/favorites_icon.png"
+                loadDisplayMode="scaleToFit"
+                opacity="0.9"
+                visible="false" />
+
+            <MarqueeLabel
+                id="title"
+                translation="[18, 22]"
+                maskWidth="360"
+                maskHeight="36"
+                font="font:SmallBoldSystemFont"
+                color="#CCCCCC" />
+        </Group>
+    </children>
+</component>

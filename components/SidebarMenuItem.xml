@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- 
+*************************************************************
+Sidebar Menu Item Component
+************************************************************* 
+-->
+<component name="SidebarMenuItem" extends="Group">
+    <interface>
+        <field id="itemContent" type="node" onChange="onContentSet" />
+        <field id="focusPercent" type="float" onChange="onFocusChange" />
+    </interface>
+    
+    <script type="text/brightscript" uri="pkg:/components/SidebarMenuItem.brs" />
+    
+    <children>
+        <Group id="itemContainer">
+            <!-- Fondo del item -->
+            <Rectangle
+                id="itemBg"
+                width="80"
+                height="80"
+                color="#1A1A1A"
+                opacity="0.0" />
+            
+            <!-- Icono -->
+            <Poster
+                id="itemIcon"
+                translation="[20, 20]"
+                width="40"
+                height="40"
+                uri="pkg:/images/placeholder.png"
+                loadingBitmapUri="pkg:/images/placeholder.png"
+                failedBitmapUri="pkg:/images/placeholder.png"
+                loadDisplayMode="scaleToFit"
+                blendColor="#666666" />
+        </Group>
+    </children>
+</component>
